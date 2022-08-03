@@ -3,6 +3,10 @@ import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
 
+export const TodolistSwalNull = () => {
+    return MySwal.fire("請輸入代辦事項");
+}
+
 export const TodolistSwalSucces = () => {
     return MySwal.fire({
         icon: "success",

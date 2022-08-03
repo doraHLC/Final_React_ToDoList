@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { TodolistSwalNull } from '../components/utilities/TodolistSwal'
 
 export default function TodolistInputBox({ todolistPostApi }) {
     const [value, setValue] = useState('');
@@ -8,6 +9,10 @@ export default function TodolistInputBox({ todolistPostApi }) {
         setValue(e.target.value)
     }
     const inputClick = () => {
+        if (!value) {
+            TodolistSwalNull();
+            return null;
+        }
         todolistPostApi(value);
         setValue('');
     }
@@ -21,7 +26,7 @@ export default function TodolistInputBox({ todolistPostApi }) {
                 value={value}
                 onChange={valueChange} />
             <FontAwesomeIcon
-                className='block p-3 bg-[#333333] text-white rounded-lg absolute top-1 right-1'
+                className='block p-3 bg-[#333333] text-white rounded-lg absolute top-1 right-1 cursor-pointer'
                 icon="fa fa-plus"
                 onClick={inputClick} />
         </div>
