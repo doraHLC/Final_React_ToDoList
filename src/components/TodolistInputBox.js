@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default function TodolistInputBox({ TodolistPostApi }) {
+export default function TodolistInputBox({ todolistPostApi }) {
     const [value, setValue] = useState('');
 
     const valueChange = e => {
         setValue(e.target.value)
     }
     const inputClick = () => {
-        TodolistPostApi(value);
+        todolistPostApi(value);
         setValue('');
     }
 
